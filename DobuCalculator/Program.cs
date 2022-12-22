@@ -6,19 +6,30 @@
         static void Main(string[] args)
         {
             CalculateUtil calculateUtil = new CalculateUtil();
-            UserInterfaceUtil UiUtil = new UserInterfaceUtil();
-            
+            UserInterfaceUtil UiUtil = new UserInterfaceUtil();            
             BinomialData data = UiUtil.StartMakingBinomialDataSequince();
-            ResultData binomialResult = calculateUtil.GetBinomialDistribution(data);
-            ResultData binomialFailureResult = calculateUtil.GetBinomialFailureDistribution(data);
-            ResultData binomialDobuResult = calculateUtil.GetBinomialDobuDistribution(data);
 
+            //Result
             Console.Clear();
             Console.WriteLine(UiUtil.SetSelectString(data));
+
+            //Show binomialResult            
+            ResultData binomialResult = calculateUtil.GetBinomialDistribution(data);
             Console.Write($"{Environment.NewLine}Result : ");
             Console.Write(UiUtil.SetResultString(binomialResult));            
-            Console.Write($"{Environment.NewLine}Fail   : ");
-            Console.Write(UiUtil.SetResultString(binomialFailureResult));
+            
+            //Show FailureResult
+            try
+            {
+                ResultData binomialFailureResult = calculateUtil.GetBinomialFailureDistribution(data);
+                Console.Write($"{Environment.NewLine}Fail   : ");
+                Console.Write(UiUtil.SetResultString(binomialFailureResult));
+            }catch(Exception e){ 
+                Console.Write($"{Environment.NewLine}Fail   : -% <fail:{e.Message}>");
+            }
+            
+            //Show DobuResult
+            ResultData binomialDobuResult = calculateUtil.GetBinomialDobuDistribution(data);
             Console.Write($"{Environment.NewLine}Dobu   : ");
             Console.Write(UiUtil.SetResultString(binomialDobuResult));
 

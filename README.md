@@ -1,6 +1,6 @@
 # DobuCalculator
 
-
+![sampleView](D:\sbaek_ark\DobuCalculator\RepoData\titleImage)
 
 ### by .net6.0
 
@@ -15,6 +15,13 @@
 
 
 ## Getting Started
+
+```bash
+./Executable/DobuCalculator.exe
+#You can Just double click that file in ./Executable
+```
+
+### or
 
 ```bash
 git clone https://github.com/BaekNothing/DobuCalculator.git ./
