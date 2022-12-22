@@ -7,7 +7,6 @@ namespace DobucalculatorTest
 {
     public class UserInterfaceUtilTest
     {
-        
         [Fact]
         public void CheckNullableStringIsEmptyTest()
         {
