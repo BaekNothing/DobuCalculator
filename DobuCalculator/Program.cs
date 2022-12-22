@@ -25,7 +25,7 @@
                 Console.Write($"{Environment.NewLine}Fail   : ");
                 Console.Write(UiUtil.SetResultString(binomialFailureResult));
             }catch(Exception e){ 
-                Console.Write($"{Environment.NewLine}Fail   : -% <fail:{e.Message}>");
+                Console.Write($"{Environment.NewLine}Fail   : -% [Calculate fail : {e.Message}]");
             }
             
             //Show DobuResult
