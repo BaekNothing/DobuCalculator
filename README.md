@@ -2,7 +2,7 @@
 
 ### by .net6.0
 
-![sampleView](D:\sbaek_ark\DobuCalculator\RepoData\titleImage.gif)
+![sampleView](RepoData\titleImage.gif)
 
 ## About The Project
 
