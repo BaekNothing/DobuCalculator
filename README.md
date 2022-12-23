@@ -2,7 +2,7 @@
 
 ### by .net6.0
 
-![sampleView](RepoData\titleImage.gif)
+![sampleView](https://github.com/BaekNothing/DobuCalculator/blob/main/RepoData/titleImage.gif?raw=true)
 
 ## About The Project
 
@@ -58,7 +58,7 @@ dotnet build
 
 ## Test Result
 
-![File:testResult](RepoData\testResult.gif)
+![File:testResult](https://github.com/BaekNothing/DobuCalculator/blob/main/RepoData/testResult.gif?raw=true)
 
 [![Tester](https://img.shields.io/badge/xUnit-v2.4.1-Green)]()[![Tester](https://img.shields.io/badge/Microsoft.NET.Test.Sdk-v16.11.0-Green)]()
 
