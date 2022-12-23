@@ -18,20 +18,18 @@
             Console.Write($"{Environment.NewLine}Result : ");
             Console.Write(UiUtil.SetResultString(binomialResult));            
             
-            //Show FailureResult
-            try
+            if(data.successCount > 0)
             {
+                //Show FailureResult
                 ResultData binomialFailureResult = calculateUtil.GetBinomialFailureDistribution(data);
                 Console.Write($"{Environment.NewLine}Fail   : ");
                 Console.Write(UiUtil.SetResultString(binomialFailureResult));
-            }catch(Exception e){ 
-                Console.Write($"{Environment.NewLine}Fail   : -% [Calculate fail : {e.Message}]");
+                
+                //Show DobuResult
+                ResultData binomialDobuResult = calculateUtil.GetBinomialDobuDistribution(data);
+                Console.Write($"{Environment.NewLine}Dobu   : ");
+                Console.Write(UiUtil.SetResultString(binomialDobuResult));
             }
-            
-            //Show DobuResult
-            ResultData binomialDobuResult = calculateUtil.GetBinomialDobuDistribution(data);
-            Console.Write($"{Environment.NewLine}Dobu   : ");
-            Console.Write(UiUtil.SetResultString(binomialDobuResult));
 
             Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}Press any key to exit.");
             Console.ReadLine();

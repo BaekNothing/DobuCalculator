@@ -27,7 +27,13 @@ namespace DobuCalCulator
             ResultData result = new ResultData(0, 0, 0);
             for(int i = 0; i <= failureCount; i++)
             {
-                result = SumResult(result, GetBinomialDistribution(new BinomialData(trialCount, probability, i)));
+                try{
+                    result = SumResult(result, GetBinomialDistribution(new BinomialData(trialCount, probability, i)));
+                }catch(Exception e)
+                {
+                    Console.Write($"{Environment.NewLine}fail when get failurdistribution while sum result : {e.Message}");
+                    return new ResultData(0, 0, 0);
+                }
             }
             return result;            
         }
@@ -37,20 +43,27 @@ namespace DobuCalCulator
             BigInteger result = 0;
             int decimalPoint = 0;
 
-            if(result1.decimalPoint == result2.decimalPoint)
+            try
             {
-                result = result1.result + result2.result;
-                decimalPoint = result1.decimalPoint;
-            }
-            else if(result1.decimalPoint > result2.decimalPoint)
+                if(result1.decimalPoint == result2.decimalPoint)
+                {
+                    result = result1.result + result2.result;
+                    decimalPoint = result1.decimalPoint;
+                }
+                else if(result1.decimalPoint > result2.decimalPoint)
+                {
+                    result = result1.result + result2.result * (BigInteger)Math.Pow(10, result1.decimalPoint - result2.decimalPoint);
+                    decimalPoint = result1.decimalPoint;
+                }
+                else
+                {
+                    result = result1.result * (BigInteger)Math.Pow(10, result2.decimalPoint - result1.decimalPoint) + result2.result;
+                    decimalPoint = result2.decimalPoint;
+                }
+            }catch(Exception e)
             {
-                result = result1.result + result2.result * (BigInteger)Math.Pow(10, result1.decimalPoint - result2.decimalPoint);
-                decimalPoint = result1.decimalPoint;
-            }
-            else
-            {
-                result = result1.result * (BigInteger)Math.Pow(10, result2.decimalPoint - result1.decimalPoint) + result2.result;
-                decimalPoint = result2.decimalPoint;
+                Console.Write($"{Environment.NewLine}fail when try sum results, {e.Message}");
+                throw e;
             }
 
             return new ResultData(result, decimalPoint, 0);
